@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="text" id="text">
+    <button type="submit" onclick="palindrome()">Submit</button>
+    <p id="palindrome"></p>
+</body>
+</html>
+<script>
+    function palindrome() {
+        
+        let text = document.getElementById("text").value;
+        text = text.toLowerCase();
+        text = text.replace(/[^\w]|_/g, "");
+        let txet = ""
+        for(let i=text.length;i > -1; i--) {
+            txet += text.charAt(i);
+        }
+        let palindrome = false;
+        if(text === txet) {
+            palindrome = true;
+        } else {
+            palindrome = false;
+        }
+        
+        document.getElementById("palindrome").innerHTML = palindrome;
+    }
+</script>
